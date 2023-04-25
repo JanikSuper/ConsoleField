@@ -1,0 +1,36 @@
+using System;
+
+namespace Test
+{
+    class Program
+    {
+        public static void DrawStringAt(int x, int y, string str)
+        {
+            Console.SetCursorPosition(x, y);
+            Console.Write(str);
+        }
+
+        public static void Main(string[] args)
+        {
+            string symbol = "*";
+            string[] numbersArray = new string[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
+            string[] lettersArray = new string[] { "A", "Б", "В", "Г", "Д", "Е", "Ж", "З", "И", "К" };
+            Console.Clear();
+            for (int i = 1; i < 11; i++)
+            {
+                //Vertical
+                DrawStringAt(3, i + 1, symbol);
+                DrawStringAt(14, i + 1, symbol);
+                //Horizontal
+                DrawStringAt(i + 3, 1, symbol);
+                DrawStringAt(i + 3, 12, symbol);
+                //Text
+                DrawStringAt(2, i + 1, lettersArray[i - 1]);
+                //Numbers
+                DrawStringAt(i + 3, 0, numbersArray[i - 1]);
+            }
+
+            Console.ReadKey(true);
+        }
+    }
+}
